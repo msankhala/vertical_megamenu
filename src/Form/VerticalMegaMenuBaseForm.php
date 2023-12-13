@@ -126,6 +126,9 @@ class VerticalMegaMenuBaseForm extends EntityForm {
       '#description' => $this->t('Select the menu to use for this vertical megamenu.'),
       '#options' => $this->utilityService->getMenuListAssoc(),
       '#default_value' => $entity->menu,
+      '#required' => TRUE,
+      // Add #disabled if value is already set.
+      '#disabled' => !$entity->isNew(),
     ];
 
     // Return the form.
