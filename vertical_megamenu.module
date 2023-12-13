@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Allows access to terms in a vocabulary to be limited by user or role.
+ */
+
+use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Form\FormState;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\TermInterface;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Access\AccessResultAllowed;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Access\AccessResultForbidden;
+use Drupal\permissions_by_term\Service\AccessCheck;
+use Drupal\permissions_by_term\Service\AccessStorage;
+
+/**
+ * Implements hook_help().
+ */
+function vertical_megamenu_access_help($route_name, RouteMatchInterface $arg) {
+  switch ($route_name) {
+    case 'help.page.vertical_megamenu_access':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The "Vertical MegaMenu Access" module allows defines the custom logic for node access. See permission by term  module for more detail.') . '</p>';
+
+      return $output;
+  }
+}

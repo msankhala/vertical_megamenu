@@ -1,0 +1,4 @@
+#Define the administer permission for the vertical_megamenu config entity.
+'administer vertical megamenus':
+  title: 'Administer vertical megamenus'
+  description: Create and edit vertical megamenus.

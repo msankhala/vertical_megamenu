@@ -1,0 +1,14 @@
+# Add some local task links to facilitate navigation.
+
+vertical_megamenu.add_action:
+  route_name: entity.vertical_megamenu.add_form
+  title: 'Add vertical_megamenu'
+  appears_on:
+    - entity.vertical_megamenu.list
+
+vertical_megamenu.list_action:
+  route_name: entity.vertical_megamenu.list
+  title: 'List vertical_megamenus'
+  appears_on:
+    - entity.vertical_megamenu.add_form
+    - entity.vertical_megamenu.edit_form

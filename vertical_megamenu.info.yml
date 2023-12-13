@@ -1,0 +1,8 @@
+name: 'Vertical MegaMenu'
+description: 'This module provide a vertical mega menu with configurable options and attaching blocks with menu items.'
+dependencies:
+  - 'menu_item_extras:menu_item_extras'
+type: module
+core_version_requirement: '^9.5 || ^10'
+package: 'Vertical MegaMenu'
+# configure: vertical_megamenu_access.settings
