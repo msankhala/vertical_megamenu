@@ -10,7 +10,7 @@ entity.vertical_megamenu.list:
     # and looks for the "list" entry under "controllers" for the class to load.
     # @see \Drupal\Core\Entity\Enhancer\EntityRouteEnhancer
     _entity_list: vertical_megamenu
-    _title: 'Config Entity Example'
+    _title: 'Vertical megamenus'
   requirements:
     _permission: 'administer vertical megamenus'
 

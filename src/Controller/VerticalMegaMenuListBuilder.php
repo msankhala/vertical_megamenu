@@ -4,7 +4,6 @@ namespace Drupal\vertical_megamenu\Controller;
 
 use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\examples\Utility\DescriptionTemplateTrait;
 
 /**
  * Provides a listing of vertical_megamenu entities.
@@ -26,7 +25,6 @@ use Drupal\examples\Utility\DescriptionTemplateTrait;
  * @ingroup vertical_megamenu
  */
 class VerticalMegaMenuListBuilder extends ConfigEntityListBuilder {
-  use DescriptionTemplateTrait;
 
   /**
    * {@inheritdoc}
@@ -46,7 +44,7 @@ class VerticalMegaMenuListBuilder extends ConfigEntityListBuilder {
   public function buildHeader() {
     $header['label'] = $this->t('VerticalMegaMenu');
     $header['machine_name'] = $this->t('Machine Name');
-    $header['floopy'] = $this->t('Floopy');
+    $header['menu'] = $this->t('System Menu');
     return $header + parent::buildHeader();
   }
 
@@ -64,7 +62,7 @@ class VerticalMegaMenuListBuilder extends ConfigEntityListBuilder {
   public function buildRow(EntityInterface $entity) {
     $row['label'] = $entity->label();
     $row['machine_name'] = $entity->id();
-    $row['floopy'] = $entity->floopy;
+    $row['menu'] = $entity->menu;
 
     return $row + parent::buildRow($entity);
   }
@@ -79,7 +77,7 @@ class VerticalMegaMenuListBuilder extends ConfigEntityListBuilder {
    *   Renderable array.
    */
   public function render() {
-    $build = $this->description();
+    // $build = $this->description();
     $build[] = parent::render();
     return $build;
   }

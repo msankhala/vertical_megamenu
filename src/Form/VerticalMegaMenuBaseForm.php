@@ -7,6 +7,7 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\vertical_megamenu\Services\UtilityService;
 
 /**
  * Class VerticalMegaMenuBaseForm.
@@ -29,6 +30,13 @@ class VerticalMegaMenuBaseForm extends EntityForm {
   protected $entityStorage;
 
   /**
+   * An utility service for the vertical_megamenu entity type.
+   *
+   * @var \Drupal\vertical_megamenu\Services\UtilityService
+   */
+  protected $utilityService;
+
+  /**
    * Construct the VerticalMegaMenuBaseForm.
    *
    * For simple entity forms, there's no need for a constructor. Our
@@ -39,8 +47,11 @@ class VerticalMegaMenuBaseForm extends EntityForm {
    * @param \Drupal\Core\Entity\EntityStorageInterface $entity_storage
    *   An entity query factory for the vertical_megamenu entity type.
    */
-  public function __construct(EntityStorageInterface $entity_storage) {
+  public function __construct(EntityStorageInterface $entity_storage,
+    UtilityService $utility
+  ) {
     $this->entityStorage = $entity_storage;
+    $this->utilityService = $utility;
   }
 
   /**
@@ -58,7 +69,9 @@ class VerticalMegaMenuBaseForm extends EntityForm {
    * pass the factory to our class as a constructor parameter.
    */
   public static function create(ContainerInterface $container) {
-    $form = new static($container->get('entity_type.manager')->getStorage('vertical_megamenu'));
+    $form = new static($container->get('entity_type.manager')->getStorage('vertical_megamenu'),
+      $container->get('vertical_megamenu.utility_service')
+    );
     $form->setMessenger($container->get('messenger'));
     return $form;
   }
@@ -106,10 +119,13 @@ class VerticalMegaMenuBaseForm extends EntityForm {
       ],
       '#disabled' => !$entity->isNew(),
     ];
-    $form['floopy'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Floopy'),
-      '#default_value' => $entity->floopy,
+
+    $form['menu'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Menu'),
+      '#description' => $this->t('Select the menu to use for this vertical megamenu.'),
+      '#options' => $this->utilityService->getMenuListAssoc(),
+      '#default_value' => $entity->menu,
     ];
 
     // Return the form.

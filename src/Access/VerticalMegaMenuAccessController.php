@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\vertical_megamenu;
+namespace Drupal\vertical_megamenu\Access;
 
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Entity\EntityAccessControlHandler;

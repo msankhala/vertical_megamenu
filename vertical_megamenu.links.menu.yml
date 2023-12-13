@@ -1,3 +1,4 @@
 vertical_megamenu.menu:
   title: Vertical Megamenu
   route_name: entity.vertical_megamenu.list
+  parent: system.admin_structure

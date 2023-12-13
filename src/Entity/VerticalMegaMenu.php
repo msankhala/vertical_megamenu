@@ -56,9 +56,8 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   },
  *   config_export = {
  *     "id",
- *     "uuid",
  *     "label",
- *     "floopy"
+ *     "menu",
  *   }
  * )
  */
@@ -72,13 +71,6 @@ class VerticalMegaMenu extends ConfigEntityBase {
   public $id;
 
   /**
-   * The vertical_megamenu UUID.
-   *
-   * @var string
-   */
-  public $uuid;
-
-  /**
    * The vertical_megamenu label.
    *
    * @var string
@@ -86,10 +78,10 @@ class VerticalMegaMenu extends ConfigEntityBase {
   public $label;
 
   /**
-   * The vertical_megamenu floopy flag.
+   * The menu used for this vertical_megamenu.
    *
    * @var string
    */
-  public $floopy;
+  public $menu;
 
 }

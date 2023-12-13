@@ -1,10 +1,14 @@
-# services:
-#   vertical_megamenu_access.subscriber:
-#     class: Drupal\vertical_megamenu_access\EventSubscriber\AccessSubscriber
-#     tags:
-#       - {name: event_subscriber}
-#   vertical_megamenu_access.access_storage:
-#     class: Drupal\vertical_megamenu_access\Service\AccessStorageOverride
-#     decorates: permissions_by_term.access_storage
-#     public: false
-#     arguments: ['@vertical_megamenu_access.access_storage.inner', '@database', '@permissions_by_term.term_handler', '@permissions_by_term.access_check', '@permissions_by_term.key_value_cache']
+services:
+  vertical_megamenu.utility_service:
+    class: Drupal\vertical_megamenu\Services\UtilityService
+    arguments: ['@entity_type.manager']
+
+  # vertical_megamenu_access.subscriber:
+  #   class: Drupal\vertical_megamenu_access\EventSubscriber\AccessSubscriber
+  #   tags:
+  #     - {name: event_subscriber}
+  # vertical_megamenu_access.access_storage:
+  #   class: Drupal\vertical_megamenu_access\Service\AccessStorageOverride
+  #   decorates: permissions_by_term.access_storage
+  #   public: false
+  #   arguments: ['@vertical_megamenu_access.access_storage.inner', '@database', '@permissions_by_term.term_handler', '@permissions_by_term.access_check', '@permissions_by_term.key_value_cache']
