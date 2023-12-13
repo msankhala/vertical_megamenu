@@ -11,7 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * @ingroup vertical_megamenu
  */
-class VerticalMegaMenuAddForm extends VerticalMegaMenuFormBase {
+class VerticalMegaMenuAddForm extends VerticalMegaMenuBaseForm {
 
   /**
    * Returns the actions provided by this form.

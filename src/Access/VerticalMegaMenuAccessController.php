@@ -10,7 +10,8 @@ use Drupal\Core\Session\AccountInterface;
 /**
  * Defines an access controller for the vertical_megamenu entity.
  *
- * We set this class to be the access controller in VerticalMegaMenu's entity annotation.
+ * We set this class to be the access controller in VerticalMegaMenu's entity
+ * annotation.
  *
  * @see \Drupal\vertical_megamenu\Entity\VerticalMegaMenu
  *

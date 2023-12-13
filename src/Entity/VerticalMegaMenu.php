@@ -38,7 +38,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   label = @Translation("VerticalMegaMenu"),
  *   admin_permission = "administer vertical megamenus",
  *   handlers = {
- *     "access" = "Drupal\vertical_megamenu\VerticalMegaMenuAccessController",
+ *     "access" = "Drupal\vertical_megamenu\Access\VerticalMegaMenuAccessController",
  *     "list_builder" = "Drupal\vertical_megamenu\Controller\VerticalMegaMenuListBuilder",
  *     "form" = {
  *       "add" = "Drupal\vertical_megamenu\Form\VerticalMegaMenuAddForm",

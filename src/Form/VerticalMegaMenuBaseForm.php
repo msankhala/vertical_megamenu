@@ -14,7 +14,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Typically, we need to build the same form for both adding a new entity,
  * and editing an existing entity. Instead of duplicating our form code,
  * we create a base class. Drupal never routes to this class directly,
- * but instead through the child classes of VerticalMegaMenuAddForm and VerticalMegaMenuEditForm.
+ * but instead through the child classes of VerticalMegaMenuAddForm and
+ * VerticalMegaMenuEditForm.
  *
  * @ingroup vertical_megamenu
  */
@@ -30,10 +31,10 @@ class VerticalMegaMenuBaseForm extends EntityForm {
   /**
    * Construct the VerticalMegaMenuBaseForm.
    *
-   * For simple entity forms, there's no need for a constructor. Our vertical_megamenu form
-   * base, however, requires an entity query factory to be injected into it
-   * from the container. We later use this query factory to build an entity
-   * query for the exists() method.
+   * For simple entity forms, there's no need for a constructor. Our
+   * vertical_megamenu form base, however, requires an entity query factory to
+   * be injected into it from the container. We later use this query factory to
+   * build an entity query for the exists() method.
    *
    * @param \Drupal\Core\Entity\EntityStorageInterface $entity_storage
    *   An entity query factory for the vertical_megamenu entity type.
@@ -206,12 +207,18 @@ class VerticalMegaMenuBaseForm extends EntityForm {
     if ($status == SAVED_UPDATED) {
       // If we edited an existing entity...
       $this->messenger()->addMessage($this->t('VerticalMegaMenu %label has been updated.', ['%label' => $entity->label()]));
-      $this->logger('contact')->notice('VerticalMegaMenu %label has been updated.', ['%label' => $entity->label(), 'link' => $edit_link]);
+      $this->logger('contact')->notice('VerticalMegaMenu %label has been updated.', [
+        '%label' => $entity->label(),
+        'link' => $edit_link,
+      ]);
     }
     else {
       // If we created a new entity...
       $this->messenger()->addMessage($this->t('VerticalMegaMenu %label has been added.', ['%label' => $entity->label()]));
-      $this->logger('contact')->notice('VerticalMegaMenu %label has been added.', ['%label' => $entity->label(), 'link' => $edit_link]);
+      $this->logger('contact')->notice('VerticalMegaMenu %label has been added.', [
+        '%label' => $entity->label(),
+        'link' => $edit_link,
+      ]);
     }
 
     // Redirect the user back to the listing route after the save operation.
